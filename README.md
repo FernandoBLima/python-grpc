@@ -1,51 +1,17 @@
 # Python-gRPC
 
-[TOC]
-
 ## About the Repository
 
 The objective of this repository was to understand gRPC in Python with a practical application. It showcases the integration of a basic SVC model from the sklearn library, utilizing RPC services like Simple, Response Streaming, Request Streaming, and Bidirectional Streaming. Through these implementations, the goal was to provide a hands-on experience in leveraging gRPC's functionalities within Python applications.
 
 ## Dependencies
 
-* Python 3.10 or higher
+* Python 3.9 or higher
 * Other dependencies, check the `requirements.txt` file
 
 ## Installation and Start
 
 To install the project's dependencies, run the command below:
-
-```bash
-pip install -r requirments.txt
-```
-
-After everything installed and files in the correct places, you have two options to run, if you are on Linux or MacOS, you can
-
-```bash
-make compose
-```
-
-If you are on Windows, you can run the commands directly:
-
-```powershell
-docker-compose up --build
-```
-
-or you can run locally
-
-```powershell
-python client/app.py
-python server/app.py
-```
-
-## Developer Configuration
-
-If you are on Linux or MacOs, you can use the make command to bring up the development environment.
-
-```bash
-make venv 
-```
-
 On windows you will need to start manually
 
 ```powershell
@@ -54,6 +20,13 @@ venv\Scripts\activate
 python -m pip install --upgrade pip setuptools wheel
 pre-commit install
 pre-commit autoupdate
+pip install -r requirments.txt
+```
+
+If you are on Linux or MacOs, you can use the make command to bring up the development environment.
+
+```bash
+make venv 
 ```
 
 ### Using Docker Compose 
@@ -66,6 +39,12 @@ docker-compose up --build
 The configuration will create a cluster with 2 containers:
 - server container
 - client container
+
+Another way to run the application without using docker is run the following commands:
+```powershell
+python client/app.py
+python server/app.py
+```
 
 ## Protos
 
