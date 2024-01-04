@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+
+  client:
+    container_name: client
+    build:
+      context: ./client
+      dockerfile: ./Dockerfile
+    ports:
+        - 50050:50050
+    restart: always
+    depends_on:
+      - server
+    networks:
+      - grpc
+
+  server:
+    container_name: server
+    build:
+      context: ./server
+      dockerfile: ./Dockerfile
+    ports:
+        - 50051:50051
+    restart: always
+    networks:
+      - grpc
+
+networks:
+  grpc:
+    driver: bridge
